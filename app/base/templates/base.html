@@ -1,0 +1,25 @@
+<html>
+    <head>
+        {% block head %}
+            <title>My Django App</title>
+        {% endblock %}
+        {% block extrahead %}
+            <script type="text/javascript" src="/internal_media/js/jquery-3.7.1.min.js?v={{request.global_settings.version}}"></script>
+            <script type="text/javascript">
+                {% if request.user.is_authenticated %}
+                    $(document).ready(() => {
+                        //addCustomButtons();
+                    });
+                {% endif %}
+            </script>
+            <style>
+                #header {
+                    overflow: unset;
+                }
+            </style>
+        {% endblock %}
+    </head>
+    <body>
+        {% block container %}Default content{% endblock %}
+    </body>
+</html>
