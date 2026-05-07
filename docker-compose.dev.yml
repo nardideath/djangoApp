@@ -1,0 +1,60 @@
+services:
+    db:
+        container_name: db01
+        image: postgres:17.9
+        platform: linux/amd64
+        restart: unless-stopped
+        networks:
+            - djangoapp_network01
+        logging:
+            options:
+                max-size: "100m"
+                max-file: "5"
+        volumes:
+            - ./storage/db_storage01:/var/lib/postgresql/data
+        env_file:
+            - .env.db.dev
+        deploy:
+            resources:
+                limits:
+                    cpus: "2.0"
+    app:
+        container_name: djangoapp01
+        volumes:
+            - ./app:/app
+            - ./storage/app_storage01:/storage:rw
+        build:
+            context: ./app
+            dockerfile: ../Dockerfile.app
+        image: djangoapp:latest
+        platform: linux/amd64
+        restart: unless-stopped
+        working_dir: /app
+        depends_on:
+            - db
+        ports:
+            - 8000:8000
+        networks:
+            - djangoapp_network01
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        logging:
+            options:
+                max-size: "100m"
+                max-file: "5"
+        env_file:
+            - .env.app.dev
+        command:
+            - /bin/bash
+            - -c
+            - |
+              ./init_django_dev.sh
+              ./start_django_dev.sh
+        deploy:
+            resources:
+                limits:
+                    cpus: "4.0"
+
+networks:
+    djangoapp_network01:
+        name: djangoapp_network01
