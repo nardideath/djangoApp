@@ -44,7 +44,7 @@ services:
                 max-file: "5"
         env_file:
             - .env.app.dev
-        command: "sleep 1000 && /bin/bash init_django_dev.sh && /bin/bash start_django_dev.sh"
+        command: "/bin/bash init_django_dev.sh && /bin/bash start_django_dev.sh"
         deploy:
             resources:
                 limits:
