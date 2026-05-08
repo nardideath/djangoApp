@@ -44,16 +44,11 @@ services:
                 max-file: "5"
         env_file:
             - .env.app.dev
-        command:
-            - /bin/bash
-            - -c
-            - |
-              ./init_django_dev.sh
-              ./start_django_dev.sh
+        command: "sleep 1000 && /bin/bash init_django_dev.sh && /bin/bash start_django_dev.sh"
         deploy:
             resources:
                 limits:
-                    cpus: "4.0"
+                    cpus: "2.0"
 
 networks:
     djangoapp_network01:
