@@ -1,1 +1,20 @@
-[]
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$1000000$BU0HwVH7AtsncZD4tI9WM2$BD9VtsIuptjnZFUtSazj1v0+dlqVRDsqUyxOCKWqEVk=",
+            "last_login": "2026-05-15T10:51:02.382Z",
+            "is_superuser": true,
+            "username": "admin",
+            "first_name": "",
+            "last_name": "",
+            "email": "admin@example.ext",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2026-05-15T10:50:53.896Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    }
+]

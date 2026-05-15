@@ -17,6 +17,7 @@ A simple django project (django | python3 | postgres)
 - - docker compose -f docker-compose.dev.yml up --build
 - - - AAA: sometimes db init is not working at first time, please stop and do docker compose
 - AAA: on windows git bash, please change CRLF --> LF on init_django_dev.sh
+- a default admin user is imported on init_django_dev.sh (admin | admin)
 
 # reinit all (IT DELETES EVERYTHING ON DB & STORAGE)
 
