@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 
 {% block container %}
-    <h1>Welcome to My Django App</h1>
-    <p>This is the home page.</p>
+    <h1>Welcome to My Django App {{request.global_settings.version}} {% if windows %}(you are on windows){% endif %}</h1>
+    {% if title %}
+        <p>{{ title }}</p>
+    {% else %}
+        <p>There's no title</p>
+    {% endif %}
+    <br/>
+    <div>
+        {{ message }}
+    </div>
 {% endblock %}

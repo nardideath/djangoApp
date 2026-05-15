@@ -17,6 +17,11 @@ base_view_list = [
         base_views.contacts,
         name="contacts"
     ),
+    path(
+        "items/",
+        base_views.items,
+        name="items"
+    ),
 ]
 
 

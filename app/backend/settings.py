@@ -12,7 +12,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 DEBUG = os.getenv("DEBUG", "False").lower() in ("true", "1", "t")
-DEBUG_LOG_EXCEPTIONS = os.getenv("DEBUG_LOG_EXCEPTIONS", "False").lower() in ("true", "1", "t")
 
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
