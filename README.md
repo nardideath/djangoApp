@@ -19,6 +19,6 @@ A simple django project (django | python3 | postgres)
 
 # reinit all (IT DELETES EVERYTHING ON DB & STORAGE)
 
-- rm -rf storage/db_storage01 && rm -rf storage/app_storages01
+- rm -rf storage/db_storage01 && rm -rf storage/app_storage01
 - rm -rf app/base/migrations
 - docker compose -f docker-compose.dev.yml up --build
