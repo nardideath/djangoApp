@@ -12,7 +12,11 @@ base_view_list = [
         base_views.index,
         name="index"
     ),
-    
+    path(
+        "contacts/",
+        base_views.contacts,
+        name="contacts"
+    ),
 ]
 
 
